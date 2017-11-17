@@ -13,6 +13,11 @@
 	<!-- 加载配置属性文件 -->
 	<import resource="spring-conf.xml" />
 
+	<!-- 使用Annotation自动注册Bean,只扫描@Controller(其他的注解扫描会在context配置文件中定义) -->
+	<context:component-scan base-package="com.liukang.study" use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+
 	<aop:aspectj-autoproxy />
 
 
